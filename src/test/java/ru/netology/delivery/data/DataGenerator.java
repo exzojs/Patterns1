@@ -19,13 +19,13 @@ public class DataGenerator {
     }
 
     public static String generateCity(String locale) {
-        var cities = new String[]{"Санкт-Петербург", "Саратов", "Тула", "Орёл", "Магадан", "Самара", "Волгоград"};
+        var cities = new String[]{"Санкт-Петербург", "Москва", "Саратов", "Тула", "Орёл", "Магадан", "Самара", "Волгоград"};
         return cities[new Random().nextInt(cities.length)];
     }
 
     public static String generateName(String locale) {
         var faker = new Faker(new Locale(locale));
-        return faker.name().lastName()+ " " + faker.name().firstName();
+        return faker.name().lastName().replace("ё", "е") + " " + faker.name().firstName().replace("ё", "е");
     }
 
     public static String generatePhone(String locale) {
