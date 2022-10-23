@@ -8,6 +8,8 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 import java.util.Random;
 
+import static org.apache.commons.lang3.RandomUtils.nextInt;
+
 public class DataGenerator {
     private DataGenerator() {
     }
@@ -17,9 +19,8 @@ public class DataGenerator {
     }
 
     public static String generateCity(String locale) {
-
-        var faker = new Faker(new Locale(locale));
-        return faker.address().city();
+        var cities = new String[]{"Санкт-Петербург", "Саратов", "Тула", "Орёл", "Магадан", "Самара", "Волгоград"};
+        return cities[new Random().nextInt(cities.length)];
     }
 
     public static String generateName(String locale) {
