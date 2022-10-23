@@ -19,8 +19,10 @@ public class DataGenerator {
     }
 
     public static String generateCity(String locale) {
-        var cities = new String[]{"Санкт-Петербург", "Москва", "Саратов", "Тула", "Орёл", "Магадан", "Самара", "Волгоград"};
-        return cities[new Random().nextInt(cities.length)];
+        String[] cities = new String[]{"Санкт-Петербург", "Москва", "Саратов", "Тверь", "Орёл", "Магадан", "Самара", "Волгоград"};
+
+        Faker faker = new Faker(new Locale(locale));
+        return cities[faker.number().numberBetween(0, cities.length -1)];
     }
 
     public static String generateName(String locale) {
